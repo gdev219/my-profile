@@ -31,7 +31,7 @@ export default {
   },
   created() {
     // console.log("created");
-    const execptionList = ['Signup', 'Admin']
+    const execptionList = ['Signup']
     this.$router.options.routes.forEach((route) => {
       if (route.path !== '/' && route.path.match(/[/]/g).length === 1) {
         // console.log("이름:" + route.name);
