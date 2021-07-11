@@ -2,19 +2,16 @@
   <ul class="snap-menu">
     <!-- get menu info.. ajax -->
     <li v-for="route in routes" :key="route.name">
-      <p class="parent-list" v-on:click="route.flag = !route.flag">
-        <i
-          class="fas fa-caret-down rotate"
-          v-bind:class="{ down: !route.flag }"
-        ></i
+      <p class="parent-list" @click="route.flag = !route.flag">
+        <i class="fas fa-caret-down rotate" :class="{ down: !route.flag }"></i
         ><span>{{ route.name.toUpperCase() }}</span>
       </p>
-      <ul class="child-list" v-if="route.flag">
+      <ul v-if="route.flag" class="child-list">
         <nuxt-link
-          tag="li"
           v-for="childrenRoute in route.children"
           :key="childrenRoute.name"
           :to="childrenRoute.path"
+          tag="li"
         >
           {{ childrenRoute.name }}
         </nuxt-link>

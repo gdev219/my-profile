@@ -86,6 +86,16 @@ export default {
         this.flagMenu = false
         this.flagModal = false
       }
+      if ('query' in this.$route) {
+        if (this.$route.query.login === 'false') {
+          this.flagModal = true
+        }
+      }
+    },
+    flagModal(val) {
+      if (!val || val === 'false') {
+        this.$router.push('/')
+      }
     },
   },
   mounted() {
