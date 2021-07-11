@@ -18,7 +18,11 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: ['~assets/scss/app.scss', '@fortawesome/fontawesome-free/css/all.css'],
+
+  styleResources: {
+    less: '~/assets/scss/*.scss',
+  },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -30,6 +34,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
+    '@nuxtjs/style-resources',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -54,7 +59,16 @@ export default {
           appId: '1:14701232827:web:f1096e6fd3b56147b09f9e',
         },
         services: {
-          auth: true, // Just as example. Can be any other service.
+          auth: {
+            persistence: 'local', // default
+            initialize: {
+              onAuthStateChangedMutation: 'auth/ON_AUTH_STATE_CHANGED_MUTATION',
+              onAuthStateChangedAction: 'auth/onAuthStateChangedAction',
+              subscribeManually: false,
+            },
+            ssr: false, // default
+          },
+          firestore: true,
         },
       },
     ],
