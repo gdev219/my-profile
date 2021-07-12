@@ -82,8 +82,8 @@ export default {
   },
   watch: {
     $route() {
+      this.flagMenu = false
       if (this.$route.name === 'index') {
-        this.flagMenu = false
         this.flagModal = false
       }
       if ('query' in this.$route) {
@@ -291,7 +291,7 @@ $background-color: #1e1e1e;
       overflow-y: scroll;
       .main-content {
         // padding: 2vw;
-        height: 100%;
+        height: calc(100% - 100px);
       }
     }
     .modal-section {

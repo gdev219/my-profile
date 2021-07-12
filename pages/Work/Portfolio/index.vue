@@ -62,23 +62,24 @@ export default {
       // eslint-disable-next-line prefer-const
       let orderedArr = {}
       if (this.selected === 1) {
-        this.snippetData.forEach((item) => {
+        // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+        this.snippetData.reverse().forEach((item) => {
           if (!arr[item.date.end.year.toString()])
             arr[item.date.end.year.toString()] = []
           arr[item.date.end.year.toString()].push(item)
         })
-        return arr
+        return arr;
       } else if (this.selected === 2) {
         this.snippetData.forEach((item) => {
           if (!arr[item.type]) arr[item.type] = []
           arr[item.type].push(item)
         })
         Object.keys(arr)
-          .sort()
+          .reverse()
           .forEach((key) => {
             orderedArr[key] = arr[key]
           })
-        return arr
+        return orderedArr
       }
       return arr
     },

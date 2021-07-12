@@ -31,7 +31,7 @@ export default {
   },
   created() {
     // console.log("created");
-    const execptionList = ['Signup']
+    const execptionList = ['Signup', 'Admin']
     this.$router.options.routes.forEach((route) => {
       if (route.path !== '/' && route.path.match(/[/]/g).length === 1) {
         // console.log("이름:" + route.name);
@@ -43,16 +43,20 @@ export default {
         })
       }
     })
-
-    for (let i = 0; i < this.routes.length; i++) {
-      for (let j = 0; j < execptionList.length; j++) {
-        if (this.routes[i]) {
-          if (this.routes[i].name === execptionList[j]) {
-            this.routes.splice(i, 1)
-          }
-        }
-      }
-    } // eliminates specific root routers
+    execptionList.forEach((ext) => {
+      const matchIndex = this.routes.findIndex((el) => el.name === ext)
+      this.routes.splice(matchIndex, 1)
+    })
+    // this.routes.map(el=>execptionList.includes(el.name))
+    // for (let i = 0; i < this.routes.length; i++) {
+    //   for (let j = 0; j < execptionList.length; j++) {
+    //     if (this.routes[i]) {
+    //       if (this.routes[i].name === execptionList[j]) {
+    //         this.routes.splice(i, 1)
+    //       }
+    //     }
+    //   }
+    // } // eliminates specific root routers
 
     this.$router.options.routes.forEach((route) => {
       if (route.path.match(/[/]/g).length > 1) {

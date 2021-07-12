@@ -1,6 +1,9 @@
 <template>
     <div class="post">
         <div class="post-container post-gallery">
+          <div class="caution">
+            * 예시 이미지는 참고용이며 실제 개발 이미지와 다릅니다. 각 서비스 보안에 따라 메인페이지 혹은 관련 페이지만 표시합니다.
+          </div>
 					<no-ssr>
 							<carousel
 									:navigation-enabled="true"
@@ -110,6 +113,10 @@ export default {
   }
   .post-container {
     float: left;
+    .caution{
+      font-size: 13px;
+      padding-bottom: 10px;
+    }
   }
   .post-gallery {
     width: calc(65% - 40px);
