@@ -10,6 +10,19 @@
     <p class="logo-function">
       <span class="function-bracket">}</span>
     </p>
+    <p class="logo-footer">
+      This page is made with
+      <a
+        class="link firebase"
+        href="https://firebase.google.com/"
+        target="_blank"
+        >@firebase</a
+      >
+      and
+      <a class="link nuxt" href="https://ko.nuxtjs.org/" target="_blank">
+        @Nuxt
+      </a>
+    </p>
   </div>
 </template>
 <script>
@@ -46,6 +59,22 @@ export default {
   .logo-title {
     font-weight: 900;
     color: #3eade0;
+  }
+  .logo-footer {
+    font-size: 13px;
+    .link {
+      font-size: 14px;
+      font-weight: bold;
+      &:hover {
+        text-decoration: underline;
+      }
+      &.firebase {
+        color: #f5820d;
+      }
+      &.nuxt {
+        color: #00c58e;
+      }
+    }
   }
 }
 @media screen and (max-width: 1500px) {

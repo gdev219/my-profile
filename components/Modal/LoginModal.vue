@@ -22,13 +22,6 @@
       <p>
         <button class="button btn-login" @click="login()">로그인</button>
       </p>
-      <p class="last">
-        <label class="button btn-signup"
-          ><nuxt-link to="/signup" @click.native="closeModal()"
-            >회원가입</nuxt-link
-          ></label
-        >
-      </p>
     </div>
   </div>
 </template>

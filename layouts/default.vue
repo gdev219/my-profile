@@ -48,7 +48,10 @@
         </section>
         <section v-if="flagModal" class="modal-section">
           <div class="modal-wrapper" @click.self="flagModal = false">
-            <login-modal :flag.sync="flagModal"></login-modal>
+            <login-modal
+              :flag.sync="flagModal"
+              @signup="toSignUp"
+            ></login-modal>
           </div>
         </section>
       </section>
@@ -93,6 +96,7 @@ export default {
       }
     },
     flagModal(val) {
+      if (this.$route.name === 'Signup') return
       if (!val || val === 'false') {
         this.$router.push('/')
       }
@@ -113,6 +117,10 @@ export default {
     },
     closeMenu(e) {
       this.flagMenu = false
+    },
+    toSignUp() {
+      this.flagModal = false
+      this.$nuxt.$router.push('/Signup')
     },
     sendVerification() {
       // auth.currentUser.sendEmailVerification().then(function () {

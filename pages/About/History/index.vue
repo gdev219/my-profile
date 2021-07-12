@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="time-line">
     <ul>
       <li v-for="(n, i) in currentYear - birthYear + 1" :key="i">
         <span class="timeline-year" :class="{ on: yearIndex[i] }">{{
@@ -63,6 +63,9 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.time-line {
+  padding-bottom: 40px;
+}
 ul {
   list-style: none;
   border-left: 4px solid #35373c;
