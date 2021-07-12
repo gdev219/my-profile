@@ -22,6 +22,14 @@
       <a class="link nuxt" href="https://ko.nuxtjs.org/" target="_blank">
         @Nuxt
       </a>
+      in
+      <a
+        class="link github"
+        href="https://github.com/gdev219/my-profile"
+        target="_blank"
+      >
+        @github
+      </a>
     </p>
   </div>
 </template>
@@ -73,6 +81,9 @@ export default {
       }
       &.nuxt {
         color: #00c58e;
+      }
+      &.github {
+        color: #7dbbe6;
       }
     }
   }
