@@ -165,7 +165,7 @@ export default {
         alert('이미지가 업로드중입니다. 잠시 후 다시 해라')
         return -1
       }
-      this.portfolioPreview.timestamp = this.$fire.serverTime()
+      this.portfolioPreview.timestamp = new Date().getTime();
       const batch = this.$fire.firestore.batch()
       let snippetData = {}
       let postData = {}
